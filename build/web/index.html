@@ -1,38 +1,71 @@
 <!-- Login Page -->
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Login Page</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <h1 style="text-align:center">Welcome To Event Portal </h1>
-        <link rel="stylesheet" href="total.css">
-
-        <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
-    </head>
-    <marquee scrollamount="10" width="100%" direction="left" height="100px">
-        <h2>  Please choose the below links to login to your account.</h2>
-    </marquee>
-    <body>
-      <div>
+<head>
+    <title>Login Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h1 style="text-align:center">Welcome To Event Portal </h1>
+    <link rel="stylesheet" href="total.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+</head>
+<marquee scrollamount="10" width="100%" direction="left" height="100px">
+    <h2>  Please choose the below links to login to your account.</h2>
+</marquee>
+<body>
+    <div>
         <br>
-    <center>
-        <img src="admin.png" alt="Admin Image" width="100" height="100" >
-    </center>
         <center>
-        <h3>
-        Admin Login:</h3>
-        <p>
-        <a href="Alogin.html"><button> Admin Login </button> </a>
+            <img src="admin.png" alt="Admin Image" width="100" height="100" >
         </center>
-    <br><br><br>
-    <center>
-        <img src="part.png" alt="Participant Image" width="100" height="100" >
-    </center>
-      <center>
-        <h3> For Participants Of Events </h3>
-        <br>
-        <a href="Parlogin.html"><button>Participant's Login</button></a>
-    </center></div>
-    </body>
+        <center>
+            <h3>Admin Login:</h3>
+            <p>
+                <a href="Alogin.html"><button> Admin Login </button></a>
+            </center>
+        <br><br><br>
+        <center>
+            <img src="part.png" alt="Participant Image" width="100" height="100" >
+        </center>
+        <center>
+            <h3> For Participants Of Events </h3>
+            <br>
+            <a href="Parlogin.html"><button>Participant's Login</button></a>
+        </center>
+    </div>
+
+    <!-- Chatbot HTML -->
+<div style="border: 1px solid #ccc; padding: 10px; margin-top: 20px; width: 56%; text-align: center;">
+    <h3 style="color: #fff;">Event Chatbot</h3>
+    <form id="chatForm" style="margin-bottom: 10px;">
+        <label for="userInput" style="display: block; margin-bottom: 5px;">Ask me about events:</label>
+        <input type="text" id="userInput" name="userInput" style="width: 80%; padding: 8px; margin-bottom: 10px; color: black;">
+        <input type="button" value="Ask" onclick="askBot()" style="background-color: #4CAF50; color: white; padding: 8px; border: none; cursor: pointer;">
+    </form>
+    <div id="botResponse" style="font-style: italic;"></div>
+    <br>
+</div>
+    
+    <br><br>
+
+
+
+    <script>
+        function askBot() {
+            var userInput = document.getElementById("userInput").value;
+
+            // Using AJAX to send user input to the Servlet
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "EventServlet", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Update the botResponse div with the received response
+                    document.getElementById("botResponse").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send("userInput=" + userInput);
+        }
+    </script>
+</body>
 </html>
