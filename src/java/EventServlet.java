@@ -58,18 +58,42 @@ public class EventServlet extends HttpServlet {
     }
 
     private String getBotResponse(String userInput) {
-        List<String> events = getEventsFromDatabase();
+    List<String> events = getEventsFromDatabase();
 
-        // Simple logic to generate a response based on user input
-        if (userInput != null && !userInput.isEmpty()) {
-            for (String event : events) {
-                if (event.toLowerCase().contains(userInput.toLowerCase())) {
-                    return event;
-                }
+    // Simple logic to generate a response based on user input
+    if (userInput != null && !userInput.isEmpty()) {
+        String userInputLowerCase = userInput.toLowerCase();
+
+        // Check for matching events
+        for (String event : events) {
+            if (event.toLowerCase().contains(userInputLowerCase)) {
+                return "<p>" + event + "</p>";
             }
-            return "No matching events found.";
-        } else {
-            return "Please enter a valid query.";
         }
+
+        // No matching events found, check for specific queries
+        if (userInputLowerCase.contains("register events")) {
+            // Return registration procedure
+            return "<p>To register for an event, please follow the below steps:</p>"
+                    + "<ol>"
+                    + "<li>Sign in using your Participant account.</li>"
+                    + "<li>View events and decide which event to join.</li>"
+                    + "<li>Click on the event and register using your details.</li>"
+                    + "<li>Pay the event amount.</li>"
+                    + "</ol>";
+        } else if (userInputLowerCase.contains("events schedule")) {
+            // Return event schedule
+            return "<p>Day 1: Tech Events</p>"
+                    + "<p>Day 2: Non Tech Events</p>"
+                    + "<p>Day 3: DJ Party and Celebrity Visit</p>";
+        } else {
+            // No matching events and no specific queries found
+            return "<p>No matching events found.</p>";
+        }
+    } else {
+        // Handle empty or null userInput
+        return "<p>Please enter a valid query.</p>";
     }
 }
+}
+
