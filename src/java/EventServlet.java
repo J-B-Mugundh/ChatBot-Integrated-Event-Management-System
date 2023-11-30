@@ -39,7 +39,7 @@ public class EventServlet extends HttpServlet {
         List<String> events = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASSWORD)) {
-            // Assuming you have a table called "Event" with columns "eventName" and "eventDescription"
+            
             String query = "SELECT ename, edesc FROM Event";
             try (PreparedStatement preparedStatement = connection.prepareStatement(query);
                  ResultSet resultSet = preparedStatement.executeQuery()) {
@@ -51,7 +51,7 @@ public class EventServlet extends HttpServlet {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle the exception appropriately in a real-world scenario
+            e.printStackTrace(); 
         }
 
         return events;
@@ -96,4 +96,3 @@ public class EventServlet extends HttpServlet {
     }
 }
 }
-
