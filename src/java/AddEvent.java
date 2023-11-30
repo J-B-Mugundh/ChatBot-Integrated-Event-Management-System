@@ -27,7 +27,8 @@ public class AddEvent extends HttpServlet{
             Connection con = DriverManager.getConnection(conURL, user, pass);//Establish Connection
             
             Statement stmt=con.createStatement();
-            String Qs="insert into Event values('"+a1+"','"+a2+"','"+a8+"','"+a3+"','"+a4+"','"+a5+"','"+a6+"','"+a7+"') ";
+            String Qs = "INSERT INTO Event VALUES ('" + a1 + "','" + a2 + "','" + a8 + "','" + a3 + "','" + a4 + "','" + a5 + "','" + a6 + "','" + a7 + "')";
+
             ResultSet rs=stmt.executeQuery(Qs);
                  
             RequestDispatcher rd=request.getRequestDispatcher("CreateE.html");
