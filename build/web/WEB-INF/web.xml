@@ -40,6 +40,18 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EventSearchServlet</servlet-name>
+        <servlet-class>EventSearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QueryHandlerServlet</servlet-name>
+        <servlet-class>QueryHandlerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EventsServlet</servlet-name>
+        <servlet-class>EventsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ValidateAd</servlet-name>
         <url-pattern>/ValidateAd</url-pattern>
@@ -79,5 +91,17 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EventSearchServlet</servlet-name>
+        <url-pattern>/EventSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryHandlerServlet</servlet-name>
+        <url-pattern>/QueryHandlerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EventsServlet</servlet-name>
+        <url-pattern>/EventsServlet</url-pattern>
     </servlet-mapping>
 </web-app>
