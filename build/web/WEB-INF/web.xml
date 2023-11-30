@@ -36,6 +36,10 @@
         <servlet-name>EventServlet</servlet-name>
         <servlet-class>EventServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>LogoutServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ValidateAd</servlet-name>
         <url-pattern>/ValidateAd</url-pattern>
@@ -71,5 +75,9 @@
     <servlet-mapping>
         <servlet-name>EventServlet</servlet-name>
         <url-pattern>/EventServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
 </web-app>

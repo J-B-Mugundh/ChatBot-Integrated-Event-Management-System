@@ -16,13 +16,13 @@
                 <form method="post" action="Register">
                     Enter Event Name:<br><br>
                     <input type="text" id="text" name="ename"><br><p></p>
-                    Enter Event No:<br><br>
-                    <input type="text" id="text" name="enum"><br><p></p>
+<!--                    Enter Event No:<br><br>
+                    <input type="text" id="text" name="enum"><br><p></p>-->
                     Enter Card No:<br><br>
                     <input type="text" id="text" name="cardno"><br><p></p>
                     Enter Expiry Date:<br><br>
                     <input type="text" id="text" name="edate"><br><p></p>
-                    Enter CVV No:<br><br>
+                    Enter Amount:<br><br>
                     <input type="password" id="text" name="cvv"><br><p></p>
                     Enter Card Holder's Name:<br><br>
                     <input type="text" id="text" name="cname"><br><p></p>
@@ -30,5 +30,39 @@
                     </form>
                     </center>
         </div>
+        
+        <!-- Chatbot HTML -->
+<div style="border: 1px solid #ccc; padding: 10px; margin-top: 20px; width: 56%; text-align: center;">
+    <h3 style="color: #fff;">Event Chatbot</h3>
+    <form id="chatForm" style="margin-bottom: 10px;">
+        <label for="userInput" style="display: block; margin-bottom: 5px;">Ask me about the fest:</label>
+        <input type="text" id="userInput" name="userInput" style="width: 80%; padding: 8px; margin-bottom: 10px; color: black;">
+        <input type="button" value="Ask" onclick="askBot()" style="background-color: #4CAF50; color: white; padding: 8px; border: none; cursor: pointer;">
+    </form>
+    <div id="botResponse" style="font-style: italic;"></div>
+    <br>
+</div>
+    
+    <br><br>
+
+
+
+    <script>
+        function askBot() {
+            var userInput = document.getElementById("userInput").value;
+
+            // Using AJAX to send user input to the Servlet
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "EventServlet", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Update the botResponse div with the received response
+                    document.getElementById("botResponse").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send("userInput=" + userInput);
+        }
+    </script>
     </body>
 </html>

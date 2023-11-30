@@ -14,7 +14,7 @@
     <body>
       <div>
 
-    <center><h3> Participant SignUP Page </h3></center>
+    <center><h3> Participant Sign Up Page </h3></center>
         <center>
         <form method="post" action="StoreP">
         Name:<br><br>
@@ -29,5 +29,42 @@
         <input type="submit" id="sub" value="Submit">
         </form>
         </center></div>
+        
+        <!-- Chatbot HTML -->
+<div style="border: 1px solid #ccc; padding: 10px; margin-top: 20px; width: 56%; text-align: center;">
+    <h3 style="color: #fff;">Event Chatbot</h3>
+    <form id="chatForm" style="margin-bottom: 10px;">
+        <label for="userInput" style="display: block; margin-bottom: 5px;">Ask me about the fest:</label>
+        <input type="text" id="userInput" name="userInput" style="width: 80%; padding: 8px; margin-bottom: 10px; color: black;">
+        <input type="button" value="Ask" onclick="askBot()" style="background-color: #4CAF50; color: white; padding: 8px; border: none; cursor: pointer;">
+    </form>
+    <div id="botResponse" style="font-style: italic;"></div>
+    <br>
+</div>
+    
+    <br><br>
+
+
+
+    <script>
+        function askBot() {
+            var userInput = document.getElementById("userInput").value;
+
+            // Using AJAX to send user input to the Servlet
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "EventServlet", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Update the botResponse div with the received response
+                    document.getElementById("botResponse").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send("userInput=" + userInput);
+        }
+    </script>
+
     </body>
+    
+    
 </html>

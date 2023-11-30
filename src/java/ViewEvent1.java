@@ -32,7 +32,7 @@ public class ViewEvent1 extends HttpServlet {
 
             response.setContentType("text/html");
             Statement stmt1 = con.createStatement();
-            ResultSet rp = stmt1.executeQuery("select * from Event");
+            ResultSet rp = stmt1.executeQuery("select * from Event where ename is not null");
 
             out.println("<h1>Event Details</h1>");
             out.println("<div class=\"event-table\">");

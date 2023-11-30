@@ -38,15 +38,16 @@ public class TraH extends HttpServlet {
             out.println("<h1>Transaction Details</h1>");
             out.println("<div class=\"transaction-table\">");
             out.println("<table>");
-            out.println("<tr><th>Event No</th><th>Event Name</th><th>Name</th><th>Payment Date</th></tr>");
+            out.println("<tr><th>Event Name</th><th>Event Date</th><th>Participant Name</th><th>Card Number</th></tr>");
 
             while (rs.next()) {
-                String en = rs.getString("enum");
+                // String en = rs.getString("enum");
                 String re = rs.getString("ename");
                 String pd = rs.getString("edate");
                 String name = rs.getString("cname");
+                String cno = rs.getString("cardno");
 
-                out.println("<tr><td>" + en + "</td><td>" + re + "</td><td>" + name + "</td><td>" + pd + "</td></tr>");
+                out.println("<tr><td>" + re + "</td><td>" + pd + "</td><td>" + name + "</td><td>" + cno + "</td></tr>");
             }
 
             con.commit();

@@ -13,7 +13,7 @@ public class Register extends HttpServlet{
         String a2=request.getParameter("edate");
         String a3=request.getParameter("cvv");
         String a4=request.getParameter("cname");
-        String a5=request.getParameter("enum");
+        // String a5=request.getParameter("enum");
         String a6=request.getParameter("ename");
         
         //Connection to database
@@ -26,7 +26,8 @@ public class Register extends HttpServlet{
                  con.setAutoCommit(false);
                  Statement stmt=con.createStatement();
                  
-                 String Qs="insert into card values('"+a1+"','"+a2+"','"+a3+"','"+a4+"','"+a5+"','"+a6+"') ";
+                 // String Qs="insert into card values('"+a1+"','"+a2+"','"+a3+"','"+a4+"','"+a5+"','"+a6+"') ";
+                 String Qs="insert into card values('"+a1+"','"+a2+"','"+a3+"','"+a4+"','"+a6+"') ";
                  ResultSet rs=stmt.executeQuery(Qs);
                  con.commit();
                  con.close();
