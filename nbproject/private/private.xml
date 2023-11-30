@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/EventReg/src/java/TraH.java</file>
-            <file>file:/E:/EventReg/src/java/EventServlet.java</file>
+            <file>file:/E:/EventReg/src/java/EventsServlet.java</file>
             <file>file:/E:/EventReg/src/java/EventSearchServlet.java</file>
-            <file>file:/E:/EventReg/src/java/VaPa.java</file>
             <file>file:/E:/EventReg/src/java/QueryHandlerServlet.java</file>
+            <file>file:/E:/EventReg/src/java/VaPa.java</file>
             <file>file:/E:/EventReg/src/java/StoreP.java</file>
-            <file>file:/E:/EventReg/web/WEB-INF/web.xml</file>
+            <file>file:/E:/EventReg/src/java/LogoutServlet.java</file>
         </group>
     </open-files>
 </project-private>
